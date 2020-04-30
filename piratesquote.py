@@ -36,18 +36,19 @@ def getJones():
 def getGibbs():
     return statement(ws.cell(randint(3,ws.cell(1,6).value+2),6).value)
 
+# Default intent Trigger for Help
 @ask.intent('AMAZON.HelpIntent')
 def help():
     help_text = render_template('help')
     return question(help_text).reprompt(help_text)
 
-
+# Default intent for Stop
 @ask.intent('AMAZON.StopIntent')
 def stop():
     bye_text = render_template('bye')
     return statement(bye_text)
 
-
+# Default intent for Cancel
 @ask.intent('AMAZON.CancelIntent')
 def cancel():
     bye_text = render_template('bye')
